@@ -1,17 +1,47 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import axios from 'axios';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+class SwapiService {
+
+  _apiBase = 'https://swapi.dev/api';
+
+  async getResource(url) {
+    try {
+      const resp = await axios.get(`${this._apiBase}/${url}`);
+      return resp.data;
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  async getAllPeopple() {
+    const resp = await this.getResource(`/people`);
+    return resp.results;
+  }
+
+  async getPerson(id) {
+    return await this.getResource(`/people/${id}/`);
+  }
+
+  async getAllPlanets() {
+    const resp = await this.getResource(`/planets`);
+    return resp.results;
+  }
+
+  async getPlanet(id) {
+    return await this.getResource(`/planets/${id}/`);
+  }
+
+  async getAllStarships() {
+    const resp = await this.getResource(`/starships`);
+    return resp.results;
+  }
+
+  async getStarship(id) {
+    return await this.getResource(`/starships/${id}/`);
+  }
+
+}
+
+const serv = new SwapiService();
+serv.getStarship(2).then(data => console.log(data.name));
