@@ -11,7 +11,7 @@ export default class App extends React.Component {
 
   state = {
     showRandomPlanet: true,
-    selectedPerson: null
+    selectedPerson: 1
   }
 
   onClickToggleRandomPlanet() {
@@ -19,7 +19,6 @@ export default class App extends React.Component {
   }
 
   onPersonSelected(id) {
-    console.log(id);
     this.setState({selectedPerson: id});
   }
 
