@@ -79,7 +79,7 @@ export default class SwapiService {
     }
 
     _extractId(item) {
-      return item.url.match(/\/([0-9])*\/$/)[1];
+      return item.url.match(/\/([0-9]*)\/$/)[1];
     }
   }
   
