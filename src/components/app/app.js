@@ -10,15 +10,21 @@ import './app.css';
 export default class App extends React.Component {
 
   state = {
-    showRandomPlanet: true
+    showRandomPlanet: true,
+    selectedPerson: null
   }
 
   onClickToggleRandomPlanet() {
     this.setState(({showRandomPlanet}) => ({showRandomPlanet: !showRandomPlanet}));
   }
 
+  onPersonSelected(id) {
+    console.log(id);
+    this.setState({selectedPerson: id});
+  }
+
   render() {
-    const {showRandomPlanet} = this.state;
+    const {showRandomPlanet, selectedPerson} = this.state;
 
     return (
       <div>
@@ -37,10 +43,10 @@ export default class App extends React.Component {
   
         <div className="row mb2">
           <div className="col-md-6">
-            <ItemList />
+            <ItemList onItemSelected={this.onPersonSelected.bind(this)} />
           </div>
           <div className="col-md-6">
-            <PersonDetails />
+            <PersonDetails personId={selectedPerson}/>
           </div>
         </div>
       </div>

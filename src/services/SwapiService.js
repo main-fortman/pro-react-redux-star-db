@@ -46,7 +46,7 @@ export default class SwapiService {
 
     _transformPlanet(planet) {
       return {
-        id: this._extractId(planet),
+        id: SwapiService.prototype._extractId(planet),
         name: planet.name,
         population: planet.population,
         rotationPeriod: planet.rotation_period,
@@ -56,7 +56,7 @@ export default class SwapiService {
 
     _transformStarship(starship) {
       return {
-        id: this._extractId(starship),
+        id: SwapiService.prototype._extractId(starship),
         name: starship.name,
         model: starship.model,
         manufacturer: starship.manufacturer,
@@ -70,7 +70,7 @@ export default class SwapiService {
   
     _transformPerson(person) {
       return {
-        id: this._extractId(person),
+        id: SwapiService.prototype._extractId(person),
         name: person.name,
         gender: person.gender,
         birthYear: person.birthYear,
