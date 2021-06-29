@@ -9,7 +9,7 @@ export default class SwapiService {
         const resp = await axios.get(`${this._apiBase}/${url}`);
         return resp.data;
       } catch (e) {
-        console.log(e);
+        throw new Error(e);
       }
     }
   
