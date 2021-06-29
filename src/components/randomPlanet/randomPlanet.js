@@ -18,11 +18,11 @@ export default class RandomPlanet extends Component {
   constructor() {
     super();
     this.updatePlanet();
-    
+    // this.intervalId = setInterval(this.updatePlanet, 2000);
   }
 
-  updatePlanet() {
-    const id = Math.floor(Math.random() * 25 + 2);
+  updatePlanet = () => {
+    const id = Math.ceil(Math.random() * 25);
     this.swapi.getPlanet(id)
       .then(planet => {
         this.setState({planet, loading: false});
