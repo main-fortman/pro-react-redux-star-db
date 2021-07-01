@@ -23,7 +23,7 @@ export default class ItemList extends Component {
           key={item.id}
           onClick={() => this.props.onItemSelected(item.id)}
         >
-          {this.props.renderLabel(item)}
+          {this.props.children(item)}
         </li>
       );
     })

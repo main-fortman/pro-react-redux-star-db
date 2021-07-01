@@ -41,20 +41,20 @@ export default class App extends React.Component {
   
         <PeoplePage />
         
-        <div className="row mb2">
-                <div className="col-md-6">
-                <ItemList
-                  onItemSelected={this.onPersonSelected} 
-                  getData={this.swapi.getAllPlanets}
-                  renderLabel={(item) => {
-                            return `${item.name} (${item.diameter})`
-                        }}          
-                  />
-                </div>
-                <div className="col-md-6">
-                    <PersonDetails personId={this.state.selectedPerson}/>
-                </div>
+        {/* <div className="row mb2">
+            <div className="col-md-6">
+            <ItemList
+              onItemSelected={this.onPersonSelected} 
+              getData={this.swapi.getAllPlanets}
+              renderLabel={(item) => {
+                        return `${item.name} (${item.diameter})`
+                    }}          
+              />
             </div>
+            <div className="col-md-6">
+                <PersonDetails personId={this.state.selectedPerson}/>
+            </div>
+        </div> */}
       </div>
     );
 
