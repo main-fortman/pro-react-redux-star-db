@@ -8,7 +8,7 @@ export default class SwapiService {
 
   getResource = async (url) => {
     try {
-      const resp = await axios.get(`${this._apiBase}/${url}`);
+      const resp = await axios.get(`${this._apiBase}${url}`);
       return resp.data;
     } catch (e) {
       throw new Error(e);
@@ -41,7 +41,7 @@ export default class SwapiService {
   }
 
   getStarship = async (id) => {
-    const starship = this.getResource(`/starships/${id}/`);
+    const starship = await this.getResource(`/starships/${id}/`);
     return this._transformStarship(starship);
   }
 

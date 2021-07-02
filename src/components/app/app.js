@@ -2,17 +2,19 @@ import React from 'react';
 
 import Header from '../header/header';
 import RandomPlanet from '../randomPlanet/randomPlanet';
-import PeoplePage from '../peoplePage/peoplePage';
+import PeoplePage from '../pages/peoplePage';
 import './app.css';
 import SwapiService from '../../services/SwapiService';
 import DummySwapiService from '../../services/dummySwapiService';
 import { SwapiProvider } from '../swapiServiceContext/swapiServiceContext';
+import PlanetsPage from '../pages/planetsPage';
+import StarshipsPage from '../pages/starshipsPage';
 
 export default class App extends React.Component {
 
   state = {
     showRandomPlanet: true,
-    swapi: new DummySwapiService()
+    swapi: new SwapiService()
   }
 
   onClickToggleRandomPlanet() {
@@ -45,7 +47,9 @@ export default class App extends React.Component {
             showRandomPlanet ? <RandomPlanet /> : null 
           }
           
-          <PeoplePage />
+          <PeoplePage/>
+          <PlanetsPage/>
+          <StarshipsPage/>
 
         </div>
       </SwapiProvider>
