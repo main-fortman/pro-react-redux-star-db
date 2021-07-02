@@ -22,9 +22,7 @@ export default class PeoplePage extends React.Component {
     render() {
         const {selectedPerson} = this.state;
 
-        const itemList = <PersonList onItemSelected={this.onPersonSelected}>
-            {(item) => `${item.name} (${item.gender}, ${item.birthYear})`}
-            </PersonList>
+        const itemList = <PersonList onItemSelected={this.onPersonSelected}/>
 
         const personDetails = <PersonDetails itemId={selectedPerson} />
 
