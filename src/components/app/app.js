@@ -3,11 +3,10 @@ import React from 'react';
 import Header from '../header/header';
 import RandomPlanet from '../randomPlanet/randomPlanet';
 import PeoplePage from '../peoplePage/peoplePage';
-import PersonDetails from '../personDetails/personDetails';
-
 import './app.css';
-import ItemList from '../itemList/itemList';
 import SwapiService from '../../services/SwapiService';
+import ItemDetails from '../itemDetails/itemDetails';
+import Row from '../row/row';
 
 export default class App extends React.Component {
 
@@ -40,6 +39,19 @@ export default class App extends React.Component {
         }
   
         <PeoplePage />
+
+        {/* <Row
+          left={<ItemDetails
+            itemId={5}
+            getData={this.swapi.getPlanet}
+            getImageUrl={this.swapi.getPlanetImage}
+            />}
+          right={<ItemDetails
+            itemId={2}
+            getData={this.swapi.getStarship}
+            getImageUrl={this.swapi.getStarshipImage}
+            />}
+        /> */}
         
         {/* <div className="row mb2">
             <div className="col-md-6">
