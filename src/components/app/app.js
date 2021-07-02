@@ -5,6 +5,7 @@ import RandomPlanet from '../randomPlanet/randomPlanet';
 import PeoplePage from '../peoplePage/peoplePage';
 import './app.css';
 import SwapiService from '../../services/SwapiService';
+import { SwapiProvider } from '../swapiServiceContext/swapiServiceContext';
 
 export default class App extends React.Component {
 
@@ -22,23 +23,25 @@ export default class App extends React.Component {
     const {showRandomPlanet} = this.state;
 
     return (
-      <div>
-        <Header />
-        <button 
-          type='button' 
-          className='btn btn-outline-secondary'
-          onClick={this.onClickToggleRandomPlanet.bind(this)}
-        >
-          Toggle Random Planet
-        </button>
+      <SwapiProvider value={this.swapi}>
+        <div>
+          <Header />
+          <button 
+            type='button' 
+            className='btn btn-outline-secondary'
+            onClick={this.onClickToggleRandomPlanet.bind(this)}
+          >
+            Toggle Random Planet
+          </button>
 
-        {
-          showRandomPlanet ? <RandomPlanet /> : null 
-        }
-  
-        <PeoplePage />
+          {
+            showRandomPlanet ? <RandomPlanet /> : null 
+          }
+          
+          <PeoplePage />
 
-      </div>
+        </div>
+      </SwapiProvider>
     );
 
   }

@@ -57,7 +57,7 @@ export default class ItemDetails extends Component {
       content = <ItemView item={item} image={image} records={records}/>
     }
 
-    return (
+    return ( 
       <div className="item-details card">
         {content}
       </div>
