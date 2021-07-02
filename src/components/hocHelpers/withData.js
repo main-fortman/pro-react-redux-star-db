@@ -1,7 +1,7 @@
 import React from 'react';
 import Spinner from '../spinner/spinner';
 
-export default function withData(View, getData) {
+export default function withData(View) {
     return class extends React.Component {
       
       state = {
@@ -9,7 +9,7 @@ export default function withData(View, getData) {
       }
   
       componentDidMount() {
-        getData().then(data => this.setState({data}));
+        this.props.getData().then(data => this.setState({data}));
       }
   
       render() {

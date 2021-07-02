@@ -5,7 +5,7 @@ import Row from '../row/row';
 
 import './peoplePage.css';
 import { PersonList } from '../sw-components/itemLists';
-import { PersonDetails } from '../sw-components/details';
+import PersonDetails from '../sw-components/personDetails';
 
 export default class PeoplePage extends React.Component {
     
