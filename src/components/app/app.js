@@ -44,7 +44,7 @@ export default class App extends React.Component {
           </button>
 
           {
-            showRandomPlanet ? <RandomPlanet /> : null 
+            showRandomPlanet ? <RandomPlanet /> : null
           }
           
           <PeoplePage/>
