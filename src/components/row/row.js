@@ -1,4 +1,6 @@
-export default function Row({left, right}) {
+import PropTypes from 'prop-types';
+
+export default function Row({ left, right }) {
     return (
         <div className="row mb2">
             <div className="col-md-6">
@@ -10,4 +12,9 @@ export default function Row({left, right}) {
             </div>
         </div>
     )
+}
+
+Row.propTypes = {
+    left: PropTypes.node,
+    right: PropTypes.node
 }

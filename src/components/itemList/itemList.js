@@ -1,10 +1,20 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 
 import './itemList.css';
 
 class ItemList extends Component {
 
+  
+  static defaultProps = {
+    onItemSelected: (id) => {console.log(id);}
+  };
+
+  static propTypes = {
+    onItemSelected: PropTypes.func,
+    data: PropTypes.arrayOf(PropTypes.object).isRequired,
+    children: PropTypes.func.isRequired
+  };
 
   renderItems(arr) {
     return arr.map(item => {
@@ -28,10 +38,6 @@ class ItemList extends Component {
       </ul>
     );
   }
-}
-
-ItemList.defaultProps = {
-  onItemSelected: (id) => {console.log(id);}
 }
 
 export default ItemList;
