@@ -30,4 +30,8 @@ class ItemList extends Component {
   }
 }
 
+ItemList.defaultProps = {
+  onItemSelected: (id) => {console.log(id);}
+}
+
 export default ItemList;
