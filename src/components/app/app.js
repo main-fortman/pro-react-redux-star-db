@@ -9,6 +9,7 @@ import DummySwapiService from '../../services/dummySwapiService';
 import { SwapiProvider } from '../swapiServiceContext/swapiServiceContext';
 import PlanetsPage from '../pages/planetsPage';
 import StarshipsPage from '../pages/starshipsPage';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 export default class App extends React.Component {
 
@@ -33,25 +34,29 @@ export default class App extends React.Component {
 
     return (
       <SwapiProvider value={swapi}>
-        <div>
-          <Header onServiceChange={this.onServiceChange}/>
-          <button 
-            type='button' 
-            className='btn btn-outline-secondary'
-            onClick={this.onClickToggleRandomPlanet.bind(this)}
-          >
-            Toggle Random Planet
-          </button>
+        <BrowserRouter>
+          <div>
+            <Header onServiceChange={this.onServiceChange}/>
+            <button 
+              type='button' 
+              className='btn btn-outline-secondary'
+              onClick={this.onClickToggleRandomPlanet.bind(this)}
+            >
+              Toggle Random Planet
+            </button>
 
-          {
-            showRandomPlanet ? <RandomPlanet /> : null
-          }
-          
-          <PeoplePage/>
-          <PlanetsPage/>
-          <StarshipsPage/>
+            {
+              showRandomPlanet ? <RandomPlanet /> : null
+            }
 
-        </div>
+            <Route path='/' exact render={() => <h2>Welcome to StarDB</h2>}/>
+            <Route path='/people' component={PeoplePage}/>
+            <Route path='/planets' component={PlanetsPage}/>
+            <Route path='/starships' component={StarshipsPage}/>
+
+          </div>
+        </BrowserRouter>
+
       </SwapiProvider>
     );
 
