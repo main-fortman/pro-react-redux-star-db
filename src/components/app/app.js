@@ -9,7 +9,7 @@ import DummySwapiService from '../../services/dummySwapiService';
 import { SwapiProvider } from '../swapiServiceContext/swapiServiceContext';
 import PlanetsPage from '../pages/planetsPage';
 import StarshipsPage from '../pages/starshipsPage';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import StarshipDetails from '../sw-components/starshipDetails';
 import LoginPage from '../pages/loginPage';
 import SecretPage from '../pages/secretPage';
@@ -57,24 +57,30 @@ export default class App extends React.Component {
               showRandomPlanet ? <RandomPlanet /> : null
             }
 
-            <Route path='/' exact render={() => <h2>Welcome to StarDB</h2>}/>
-            <Route path='/people/:id?' component={PeoplePage}/>
-            <Route path='/planets' component={PlanetsPage}/>
-            <Route path='/starships' exact component={StarshipsPage}/>
-            <Route
-              path='/starships/:id'
-              render={({match}) => {
-                return <StarshipDetails itemId={match.params.id} />
-              }}
-            />
-            <Route
-              path='/login'
-              render={() => <LoginPage isLoggedIn={isLoggedIn} onLogin={this.onLogin}/>}
+            <Switch>
+              <Route path='/' exact render={() => <h2>Welcome to StarDB</h2>}/>
+              <Route path='/people/:id?' component={PeoplePage}/>
+              <Route path='/planets' component={PlanetsPage}/>
+              <Route path='/starships' exact component={StarshipsPage}/>
+              <Route
+                path='/starships/:id'
+                render={({match}) => {
+                  return <StarshipDetails itemId={match.params.id} />
+                }}
               />
-            <Route
-              path='/secret'
-              render={() => <SecretPage isLoggedIn={isLoggedIn}/>}
+              <Route
+                path='/login'
+                render={() => <LoginPage isLoggedIn={isLoggedIn} onLogin={this.onLogin}/>}
+                />
+              <Route
+                path='/secret'
+                render={() => <SecretPage isLoggedIn={isLoggedIn}/>}
               />
+              <Redirect to='/'/>
+              {/* <Route render={ () => {
+                return <h2>404</h2>
+              }} /> */}
+            </Switch>
 
           </div>
         </BrowserRouter>
